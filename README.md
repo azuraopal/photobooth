@@ -1,18 +1,33 @@
 # Photobooth
 
-The Flutter app for Android and iOS is in [`flutter/`](flutter/README.md).
-It includes timed camera sessions, gallery import, twelve photo layouts, six frame
-palettes, seven reversible filters, captions, local collections and PNG sharing.
+Photobooth is a Flutter app for Android and iOS. Open this repository in Orca, select a Codex chat, and work from prompts. Run the commands below from the repository root.
+
+## Run
 
 ```sh
-cd flutter
 flutter pub get
 flutter devices
 flutter run -d <device-id>
 ```
 
-See [`flutter/docs/DESIGN.md`](flutter/docs/DESIGN.md) for the UI system and
-[`flutter/docs/PRODUCT.md`](flutter/docs/PRODUCT.md) for scope and limitations.
+Android SDK and device setup are managed through Android Studio. Xcode provides the iOS simulator and build tools. Both runtimes can be attached using Orca's Emulator pane.
 
-The original Swift prototype remains at the repository root. The Flutter app is
-independent and does not require the prototype's Python server.
+## Current features
+
+Camera sessions, timed captures with pose prompts, gallery import, 12 layouts, six frame palettes, seven filters, targeted retakes, captions, local collections and PNG sharing. The classic strip is exported at 600 x 1800 pixels. Saved sessions live in the app's documents directory; use the share sheet to save to Photos or Files.
+
+No account or backend is required. Photos are not automatically uploaded. Camera quality and gallery integration need physical-device testing. AR effects, generative backgrounds and motion clips are planned, not implemented.
+
+## Checks
+
+```sh
+dart format lib test
+flutter analyze
+flutter test
+flutter build apk --debug
+flutter build ios --simulator --debug
+```
+
+See `docs/PRODUCT.md` for product scope and `.agents/skills/photobooth-flutter/SKILL.md` for project guidance.
+
+The earlier Swift prototype is retained in `archive/ios-swift/` for reference.
