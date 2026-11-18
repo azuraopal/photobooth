@@ -1,0 +1,5 @@
+.build/
+.swiftpm/
+photobooth.app/
+*.db
+smtp_server.py
